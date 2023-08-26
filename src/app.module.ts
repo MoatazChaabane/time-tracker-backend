@@ -1,15 +1,18 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TimeLogsModule } from './time-logs.module'; // Vérifiez le chemin
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      // Configuration de la base de données
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: '',
+      database: 'test',
+      entities: [],
+      synchronize: true,
     }),
-    TimeLogsModule,
   ],
-  controllers: [],
-  providers: [],
 })
 export class AppModule {}
